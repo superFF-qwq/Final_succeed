@@ -1,0 +1,53 @@
+---
+title: "ADS2 Mock Coding Challenge 2"
+date: "Semester 2, 2023-24"
+output: pdf_document
+---
+
+# 1. Vitamin C and tooth growth
+
+Lack of vitamin C leads to severe health issues. It is not produced in the human body and must be supplied with food. At the same time, personnel that have limited access to fresh vegetables (sailors, spacemen, travelers, etc) may suffer from the insufficiency of this compound in their food. Thus, a vitamin C formulation that can preserve its properties for a long time is of great need.
+
+Researchers developed such a formulation. *In vitro* tests showed its efficiency. Now, they performed an *in vivo* trial. Guinea pigs received the newly developed formulation of Vitamin C or fresh orange juice (normalized according to the concentration of vitamin C) in addition to their standard diet (`supp`). Each type of additives included three concentrations (`dose`) of vitamin C: 0.5, 1, and 2 mg/ml. The measured outcome is the tooth length (`len`) in mm (stem cells that become teeth are sensitive to vitamin C).
+
+## Import, check, and organize the data appropriately. Reformat columns if needed.
+
+## Plot the data in a useful way.
+
+## Choose, justify, state the statistical hypotheses, and carry out an appropriate test to answer whether the vitamin C formula is useful.
+
+## Present and discuss your results. Is this novel formula useful? What would you suggest doing next?
+
+\newpage
+
+# 2. Mutation and survival
+
+You work on the mutation of a certain gene (Gene_X) that likely causes developmental abnormalities in humans but is quite rare, and the precise role of the mutation is not known. You created a mouse model by introducing a similar mutation in a similar location within the murine genome.
+
+You set several breeding pairs and crossed mice as Gene_X^WT/mut^ $\times$ Gene_X^WT/mut^. You recorded the genotype of the newborn mice. Your genotyping record (`genotype.csv`) includes `mouse_ID`, birth date (`BD`), `sex`, and `genotype`.
+
+Answer the questions below, provide your analysis, and explain your results. Given the genotyping records you got, what can you say about the studied mutation?
+
+## Import and organize the data.
+
+## *Describe* the data in a useful way.
+
+## What would you expect under Mendelian inheritance?
+
+## Choose and justify the appropriate statistical test, state the statistical hypotheses, and carry the test out an appropriate test on whether the mutation affects the survival of mice.
+
+## Present and discuss your results. What would you suggest doing next?
+
+\newpage
+
+# 3. Coffee shop opening hours
+
+A new coffee shop has opened on campus. Hooray! Coffee shops are normally open from 6am-5pm but the owners are aware that students often sleep later than other members of the society. After being open for one month, they run a month-long trial opening 10am-9pm to see if students prefer these times. They leave an iPad at the serving counter where customers can record if they are 'satisfied' or 'unsatisfied' with the opening times.
+
+During the 6am-5pm opening times, the iPad records 864 presses of the 'satisfied' button by customers and 714 presses of the 'unsatisfied' button. When they change these times to 10am-9pm, they receive 980 'satisfied' pressed and 473 'unsatisfied'.
+
+## What would be a suitable statistical test for these data and why?
+
+## What are your null and alternative hypotheses?
+
+## Are students more satisfied with the early or later opening times?

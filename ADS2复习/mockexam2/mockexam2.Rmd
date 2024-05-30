@@ -1,0 +1,88 @@
+---
+title: "W16"
+author: "superFF"
+date: "2024-05-24"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r}
+setwd("C:/Users/Lenovo/Desktop")
+db = read.csv("t1d_drug.csv")
+head(db)
+anyNA(db)
+db[apply(is.na(db), 1, any), ]
+db[rowSums(is.na(db)) > 0, ]
+anyDuplicated(db)
+duplicated(db)
+```
+
+
+
+
+```{r}
+x <- c(10.2,  10.7,  15.5,  10.4 , 9.9,  10.0,  16.6,  15.1,  15.2,  13.8,  14.1 , 11.4 , 11.5 , 11.0)
+y <-  c( 8.1,  8.5,  8.4 , 7.3,  8.0,  7.1,  13.9 , 12.2,  13.4,  11.3,  12.6 , 12.6,  12.7 , 12.4)
+plot(x, y)
+abline(lm(y~x))
+library(ggpubr) 
+ggqqplot(x)
+```
+
+
+```{r}
+which(!complete.cases(db))
+db[!complete.cases(db), ]
+```
+
+
+```{r}
+apply(is.na(db),2,which)
+nrow(db)
+```
+
+
+```{r}
+head(db)
+db$Treatment = as.factor(db$Treatment)
+db$Measurement = as.factor(db$Measurement)
+db1 = db %>%
+  spread(key = Measurement, value = Glucose)
+index = which(is.na(db1$Glucose_after))
+dbnew = db1[-index, ]
+dbnew$dif = dbnew$Glucose_before - dbnew$Glucose_after
+g = ggplot(dbnew, aes(x = Treatment, y = dif)) +
+  geom_boxplot(aes(color = Treatment)) +
+  geom_jitter(aes(color = Treatment), width = 0.2)
+g
+```
+
+
+```{r}
+library(car)  
+library(rstatix)
+aov_model = aov(dif~Treatment, data = dbnew)
+get_anova_table(aov_model) 
+bartlett.test(dif~Treatment, data = dbnew)
+```
+
+```{r}
+ToothGrowth %>% cohens_d(len ~ supp, var.equal = TRUE)
+```
+```{r}
+df <- data.frame(
+  id = 1:5,
+  pre  = c(110, 122, 101, 120, 140),
+  post = c(150, 160, 110, 140, 155)
+)
+df <- df %>% gather(key = "treatment", value = "value", -id)
+head(df)
+
+model = df %>% cohens_d(value ~ treatment, paired = TRUE)
+model
+model$effsize
+```
